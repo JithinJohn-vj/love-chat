@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Babe 🐻 — new message</title>
+<style>
+:root{--pink:#ff6fa0;--deep:#c2185b;--ink:#3b1f3a;box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;background:#f3c6d6}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+#app{display:flex;flex-direction:column;height:100dvh;max-width:520px;margin:0 auto;background:#ffe6ee;background-image:radial-gradient(circle at 20px 20px,rgba(255,111,160,.18) 3px,transparent 4px),radial-gradient(circle at 50px 50px,rgba(255,111,160,.12) 2px,transparent 3px);background-size:60px 60px;position:relative;overflow:hidden}
+header{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#ff7aa8,var(--pink));color:#fff;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;box-shadow:0 2px 8px rgba(194,24,91,.35);z-index:3}
+.av{width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;flex:none}
+.nm{font-weight:700;font-size:18px;line-height:1.1}
+.st{font-size:13px;opacity:.95;min-height:16px}
+#chat{flex:1;overflow-y:auto;padding:14px 10px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth}
+.m{max-width:80%;padding:8px 11px 5px;border-radius:14px;font-size:16px;line-height:1.3;box-shadow:0 1px 1px rgba(0,0,0,.14);animation:pop .28s cubic-bezier(.3,1.5,.5,1);word-wrap:break-word}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.him{align-self:flex-start;background:#fff;border-top-left-radius:4px}
+.her{align-self:flex-end;background:#ffc9dd;border-top-right-radius:4px}
+.t{font-size:11px;color:#8a6a78;text-align:right;margin-top:2px;white-space:nowrap}
+.k{letter-spacing:-3px;margin-left:3px;color:#9a8a90}.k.b{color:#2196f3}
+.img{padding:4px 4px 3px}
+.img img{display:block;width:240px;max-width:100%;max-height:340px;object-fit:cover;object-position:center 30%;border-radius:10px;cursor:zoom-in}
+.img .c{padding:5px 6px 0;font-size:15px}
+.vn{display:flex;align-items:center;gap:10px;width:250px}
+.vn button{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--pink);color:#fff;font-size:16px;cursor:pointer}
+.wave{flex:1;display:flex;gap:2px;align-items:center;height:30px}
+.wave i{flex:1;background:#e7c4d0;border-radius:2px;transition:background .15s}
+.wave i.on{background:var(--pink)}
+.dur{font-size:12px;color:#8a6a78}
+.tx{font-size:13.5px;font-style:italic;color:#6b4a5a;border-top:1px dashed #e7c4d0;margin-top:6px;padding-top:6px;max-height:0;overflow:hidden;opacity:0;transition:all .5s}
+.tx.show{max-height:200px;opacity:1}
+.sys{align-self:center;background:rgba(255,255,255,.85);border-radius:999px;padding:4px 14px;font-size:12.5px;color:#8a6a78}
+.dots{display:flex;gap:4px;padding:6px 4px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#c9a4b3;animation:dt 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dt{40%{transform:translateY(-6px);background:var(--pink)}}
+footer{padding:10px 12px calc(env(safe-area-inset-bottom,0px) + 12px);background:rgba(255,255,255,.9);min-height:72px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;box-shadow:0 -2px 8px rgba(0,0,0,.06);z-index:3}
+footer button{font:inherit;font-weight:600;font-size:16px;border:2px solid var(--pink);background:#fff;color:var(--deep);border-radius:999px;padding:10px 18px;cursor:pointer;animation:pop .3s}
+footer button:active{background:var(--pink);color:#fff}
+footer button:focus-visible{outline:3px solid #ffd23f;outline-offset:2px}
+footer .hint{color:#b08a99;font-size:14px}
+#intro{position:absolute;inset:0;z-index:10;background:linear-gradient(160deg,#ffb3cb,#ffd6e3 55%,#ffe9c9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:24px;text-align:center;transition:opacity .5s}
+#intro .clk{font-size:64px;font-weight:300;line-height:1}
+.note{display:flex;gap:12px;align-items:center;text-align:left;background:rgba(255,255,255,.85);border-radius:18px;padding:12px 16px;width:min(360px,100%);box-shadow:0 10px 26px rgba(194,24,91,.25);cursor:pointer;animation:bn 1.6s infinite;border:0;font:inherit;color:var(--ink)}
+@keyframes bn{50%{transform:translateY(-6px)}}
+.note b{display:block}
+#lb{position:fixed;inset:0;z-index:20;background:rgba(40,10,30,.85);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lb img{max-width:100%;max-height:100%;border-radius:12px}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:15;overflow:hidden}
+.fl{position:absolute;bottom:-50px;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="fx" aria-hidden="true"></div>
+<div id="app">
+  <div id="intro">
+    <div><div class="clk" id="clk"></div><p style="margin:6px 0 0;font-weight:600">a little surprise is waiting, Shijina 💌</p></div>
+    <button class="note" id="open"><span class="av">🐻</span><span><b>Babe 🐻</b>Hey Bubu 🐻‍❄️ … tap to open</span></button>
+  </div>
+  <header><div class="av">🐻</div><div><div class="nm">Babe 🐻</div><div class="st" id="st">online</div></div><div style="margin-left:auto;font-size:22px">💖</div></header>
+  <div id="chat" aria-live="polite"></div>
+  <footer id="ft"><span class="hint">…</span></footer>
+</div>
+<script>
+var P=[{"src": "photos/01-forever.jpg"}, {"src": "photos/02-dressed-up.jpg"}, {"src": "photos/03-smile.jpg"}, {"src": "photos/04-selfie.jpg"}, {"src": "photos/05-hug.jpg"}, {"src": "photos/06-sky.jpg"}, {"src": "photos/07-silly.jpg"}, {"src": "photos/08-rings.jpg"}];
+var $=function(x){return document.getElementById(x)},sleep=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+var now=new Date();$('clk').textContent=now.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}).replace(/ ?[AP]M/i,'');
+function ts(){now=new Date(now.getTime()+60000);return now.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}
+var S=[
+{t:"Hey Bubu 🐻‍❄️"},{t:"Are you awake? 🥺"},
+{choice:[{t:"Always for you 💕"},{t:"Hi babe! 🥰"}]},
+{t:"I made you something small. Want to see it?"},
+{choice:[{t:"Show me! 😍"}]},
+{t:"First, a little voice note 🎙️"},
+{v:14,x:"Hey Bubu… I just wanted you to hear my voice. I miss you so much it's silly. Every single day I'm counting down until I can hug you again."},
+{choice:[{t:"Aww babe 🥹 I miss you too"}]},
+{t:"Remember this one?"},
+{i:0,c:"Our forever photo 🤍"},
+{t:"I still smile every time I see it."},
+{choice:[{t:"Me too!! 🥰"}]},
+{i:1,c:"Dressed up, just for us."},
+{i:2,c:"THIS smile. My favorite thing in the whole world ✌️"},
+{i:3,c:"Sky-high selfie. Look how happy we are ☁️"},
+{choice:[{t:"Stop, I'm crying 😭💕"}]},
+{i:4,c:"You jumping on my back = my favorite cardio 😂"},
+{i:5,c:"Same sky, different miles. Always."},
+{i:6,c:"And our silly faces 😜"},
+{v:9,x:"Miles are just a number, Bubu. You're the closest person to my heart."},
+{choice:[{t:"Babe you're making me cry 🥺"}]},
+{t:"One more thing…"},
+{t:"I've been wanting to ask you something 🥹"},
+{sys:"Babe is gathering courage…"},
+{t:"Shijina… will you be my forever? 💍"},
+{choice:[{t:"Yes, forever 💖"},{t:"Hmm, let me think… 🤔",inject:[{t:"WHAT 😭😭"},{t:"Bubu pleaseee 🥺🥺"},{choice:[{t:"Okay okay… YES 💖"}]}]}]},
+{t:"YESSS 🥹🥹🥹",fx:1},
+{i:7,c:"Our hands, our promise 💍"},
+{t:"I love you, Shijina. Today and every tomorrow. Distance is just a number, babe. 🐻‍❄️❤️🐻"},
+{sys:"💞 forever starts here 💞",fx:1},
+{end:1}
+],idx=0;
+function add(cls,html){var d=document.createElement('div');d.className='m '+cls;d.innerHTML=html;$('chat').appendChild(d);$('chat').scrollTop=1e6;return d}
+function meta(tk){return '<div class="t">'+ts()+(tk?' <span class="k">✓✓</span>':'')+'</div>'}
+function wave(){var h='';for(var k=0;k<30;k++)h+='<i style="height:'+(6+Math.round(Math.abs(Math.sin(k*1.7)*18+Math.random()*6)))+'px"></i>';return h}
+function voice(s){
+  var d=add('him','<div class="vn"><button aria-label="Play voice note">▶</button><div class="wave">'+wave()+'</div><span class="dur">0:'+(s.v<10?'0':'')+s.v+'</span></div><div class="tx">🎙️ '+s.x+'</div>'+meta());
+  var b=d.querySelector('button'),bars=d.querySelectorAll('.wave i'),tx=d.querySelector('.tx'),run=0;
+  b.onclick=function(){
+    if(run)return;run=1;b.textContent='⏸';tx.classList.add('show');var n=0;
+    var iv=setInterval(function(){if(n<bars.length)bars[n++].classList.add('on');else{clearInterval(iv);b.textContent='▶';run=0;bars.forEach(function(x){x.classList.remove('on')})}},Math.min(s.v,8)*1000/bars.length);
+  };
+}
+function burst(n){var E=['💖','💗','💕','🐻‍❄️','🐻','✨','🌸'],h=$('fx');for(var k=0;k<n;k++){var d=document.createElement('span');d.className='fl';d.textContent=E[Math.floor(Math.random()*E.length)];d.style.left=Math.random()*100+'%';d.style.fontSize=(18+Math.random()*26)+'px';d.style.animationDuration=(3+Math.random()*3)+'s';d.style.animationDelay=(Math.random()*.6)+'s';h.appendChild(d);setTimeout(function(z){z.remove()},7000,d)}}
+function ask(s){
+  return new Promise(function(res){
+    var f=$('ft');f.innerHTML='';
+    s.choice.forEach(function(o){var b=document.createElement('button');b.textContent=o.t;b.onclick=function(){f.innerHTML='<span class="hint">…</span>';res(o)};f.appendChild(b)});
+    f.firstChild.focus&&f.firstChild.focus({preventScroll:true});
+  });
+}
+async function run(){
+  while(idx<S.length){
+    var s=S[idx++];
+    if(s.end){$('ft').innerHTML='<button onclick="location.reload()">↺ Read it again 💞</button>';break}
+    if(s.choice){
+      var o=await ask(s),m=add('her',o.t+'<div class="t">'+ts()+' <span class="k">✓✓</span></div>');
+      setTimeout(function(e){e.querySelector('.k').classList.add('b')},900,m);
+      if(o.inject)S.splice.apply(S,[idx,0].concat(o.inject));
+      await sleep(700);continue;
+    }
+    if(s.sys){add('sys',s.sys);if(s.fx)burst(40);await sleep(s.fx?900:1800);continue}
+    $('st').textContent='typing…';
+    var tp=add('him','<div class="dots"><i></i><i></i><i></i></div>');
+    await sleep(s.t?700+s.t.length*22:s.v?1300:1600);
+    tp.remove();$('st').textContent='online';
+    if(s.t)add('him',s.t+meta());
+    else if(s.v)voice(s);
+    else{var d=add('him img','<img alt="" src="'+P[s.i].src+'"><div class="c">'+s.c+'</div>'+meta());d.querySelector('img').onclick=function(){var l=document.createElement('div');l.id='lb';l.innerHTML='<img alt="" src="'+P[s.i].src+'">';l.onclick=function(){l.remove()};document.body.appendChild(l)}}
+    if(s.fx)burst(60);
+    await sleep(500);
+  }
+}
+$('open').onclick=function(){var i=$('intro');i.style.opacity=0;setTimeout(function(){i.remove()},500);burst(10);setTimeout(run,600)};
+</script>
+</body>
+</html>
